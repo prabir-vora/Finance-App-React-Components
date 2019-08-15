@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SignUp from './components/SignUp'
+import MoneySummary from './components/MoneySummary'
+import Goals from './components/Goals/Goals';
+import Budget from './components/Budget';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component< { [label:string]: any } >{
+
+  render() {
+    return (
+      <BrowserRouter>
+                <div>
+                    <Route path="/" exact component={SignUp} />
+                    <Route path="/summary" exact component={MoneySummary} />
+                    <Route path="/goals" exact component={Goals} />
+                    <Route path="/budget" exact component={Budget} />
+                </div>
+            </BrowserRouter>
+    )
+  }
+  
 }
 
 export default App;
